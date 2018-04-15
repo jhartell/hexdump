@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jhartell/hexdump.svg?branch=master)](https://travis-ci.org/jhartell/hexdump)
+
 # jhartell/hexdump
 
 Hexdump utility for PHP.
