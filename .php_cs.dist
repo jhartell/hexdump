@@ -1,0 +1,101 @@
+<?php
+/**
+ * PHP CS Fixer configuration.
+ */
+$finder = PhpCsFixer\Finder::create()
+    ->in([
+        __DIR__ . '/src/',
+        __DIR__ . '/tests/'
+    ]);
+
+$config = PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        // Include PSR2 standard
+        '@PSR2' => true,
+
+        // ArrayNotation - PHP arrays should be declared using the configured syntax.
+        'array_syntax' => ['syntax' => 'short'],
+        // ArrayNotation - Operator `=>` should not be surrounded by multi-line whitespaces.
+        'no_multiline_whitespace_around_double_arrow' => true,
+        // ArrayNotation - PHP single-line arrays should not have trailing comma.
+        'no_trailing_comma_in_singleline_array' => true,
+
+        // ControlStructure - Include/Require and file path should be divided with a single space. File path should not be placed under brackets.
+        'include' => true,
+
+        // Import - Remove leading slashes in use clauses.
+        'no_leading_import_slash' => true,
+        // Import - Unused use statements must be removed.
+        'no_unused_imports' => true,
+        // Import - Ordering use statements.
+        'ordered_imports' => true,
+
+        // NamespaceNotation - The namespace declaration line shouldn't contain leading whitespace.
+        'no_leading_namespace_whitespace' => true,
+
+        // Operator - Concatenation should be spaced according configuration
+        'concat_space' => ['spacing' => 'one'],
+        // Operator - All instances created with new keyword must be followed by braces.
+        'new_with_braces' => true,
+        // Operator - There should not be space before or after object `T_OBJECT_OPERATOR` `->`.
+        'object_operator_without_whitespace' => true,
+        // Operator - Replace all `<>` with `!=`.
+        'standardize_not_equals' => true,
+        // Operator - Standardize spaces around ternary operator.
+        'ternary_operator_spaces' => true,
+
+        // Semicolon - Remove useless semicolon statements.
+        'no_empty_statement' => true,
+        // Semicolon - Multi-line whitespace before closing semicolon are prohibited.
+        'no_multiline_whitespace_before_semicolons' => true,
+        // Semicolon - Single-line whitespace before closing semicolon are prohibited.
+        'no_singleline_whitespace_before_semicolons' => true,
+
+        // Whitespace - Removes extra blank lines and/or blank lines following configuration.
+        'no_extra_consecutive_blank_lines' => true,
+        // Whitespace - Remove trailing whitespace at the end of blank lines.
+        'no_whitespace_in_blank_line' => true,
+
+        // Phpdoc - All items of the given phpdoc tags must be aligned vertically.
+        'phpdoc_align' => [
+            'tags' => [
+                'method',
+                'param',
+                'property',
+                'return',
+                'throws',
+                'type',
+                'var',
+            ],
+        ],
+        // Phpdoc - Phpdocs annotation descriptions should not be a sentence.
+        'phpdoc_annotation_without_dot' => true,
+        // Phpdoc - Docblocks should have the same indentation as the documented subject.
+        'phpdoc_indent' => true,
+        // Phpdoc - Fix phpdoc inline tags, make inheritdoc always inline.
+        'phpdoc_inline_tag' => true,
+        // Phpdoc - Classy that does not inherit must not have inheritdoc tags.
+        'phpdoc_no_useless_inheritdoc' => true,
+        // Phpdoc - The type of `@return` annotations of methods returning a reference to itself must the configured one.
+        'phpdoc_return_self_reference' => true,
+        // Phpdoc - Scalar types should always be written in the same form. `int` not `integer`, `bool` not `boolean`, `float` not `real` or `double`.
+        'phpdoc_scalar' => true,
+        // Phpdoc - Annotations in phpdocs should be grouped together so that annotations of the same type immediately follow each other, and annotations of a different type are separated by a single blank line.
+        'phpdoc_separation' => true,
+        // Phpdoc - Single line @var PHPDoc should have proper spacing.
+        'phpdoc_single_line_var_spacing' => true,
+        // Phpdoc - Phpdocs summary should end in either a full stop, exclamation mark, or question mark.
+        'phpdoc_summary' => true,
+        // Phpdoc - Docblocks should only be used on structural elements.
+        'phpdoc_to_comment' => true,
+        // Phpdoc - Phpdocs should start and end with content, excluding the very first and last line of the docblocks.
+        'phpdoc_trim' => true,
+        // Phpdoc - The correct case must be used for standard PHP types in phpdoc.
+        'phpdoc_types' => true,
+        // Phpdoc - @var and @type annotations should not contain the variable name.
+        'phpdoc_var_without_name' => true,
+    ])
+    ->setFinder($finder);
+
+return $config;

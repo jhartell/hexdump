@@ -4,14 +4,15 @@ namespace Jhartell\Hexdump;
 class Hexdump
 {
     /**
-     * Format identifiers
+     * Format identifiers.
      */
     const FMT_HEX  = 0; // One byte hexadecimal display
     const FMT_DEC  = 1; // One byte decimal display
 
     /**
-     * Available output formats
-     * [format, blocksize]
+     * Available output formats.
+     *
+     * Array format [format, blocksize]
      *
      * @var array
      */
@@ -21,32 +22,32 @@ class Hexdump
     ];
 
     /**
-     * Current format
+     * Current format.
      *
      * @var int
      */
     protected $format = self::FMT_HEX;
 
     /**
-     * Print ascii representation
+     * Print ascii representation.
      *
-     * @var boolean
+     * @var bool
      */
     protected $printAscii = true;
 
     /**
      * Convert special characters to HTML entities
-     * for ascii printing
+     * for ascii printing.
      *
-     * @var boolean
+     * @var bool
      */
     protected $escapeHtml = true;
 
-
     /**
-     * Set format
+     * Set format.
      *
      * @param int $format
+     *
      * @return object
      */
     public function setFormat($format)
@@ -60,9 +61,10 @@ class Hexdump
     }
 
     /**
-     * Set print ascii
+     * Set print ascii.
      *
-     * @param boolean $value
+     * @param bool $value
+     *
      * @return object
      */
     public function setPrintAscii($value = true)
@@ -72,9 +74,10 @@ class Hexdump
     }
 
     /**
-     * Set escape html
+     * Set escape html.
      *
-     * @param boolean $value
+     * @param bool $value
+     *
      * @return object
      */
     public function setEscapeHtml($value = true)
@@ -84,9 +87,10 @@ class Hexdump
     }
 
     /**
-     * Dump data in the selected format
+     * Dump data in the selected format.
      *
-     * @param  string $data
+     * @param string $data
+     *
      * @return string
      */
     public function dump($data)
@@ -100,7 +104,7 @@ class Hexdump
         }
 
         // Format and block size
-        list ($fmt, $blockSize) = $this->formats[$this->format];
+        list($fmt, $blockSize) = $this->formats[$this->format];
 
         $output = '';
         $rows = str_split($data, 16);
@@ -123,7 +127,7 @@ class Hexdump
             }
 
             while ($byteCount++ < 16) {
-                if($byteCount == 9) {
+                if ($byteCount == 9) {
                     $output .= " ";
                 }
 

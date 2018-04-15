@@ -1,7 +1,10 @@
 <?php
-use Jhartell\Hexdump\Hexdump;
+namespace Jhartell\Hexdump\Tests;
 
-class HexdumpTest extends PHPUnit_Framework_TestCase
+use Jhartell\Hexdump\Hexdump;
+use PHPUnit\Framework\TestCase;
+
+class HexdumpTest extends TestCase
 {
     public function testDumpHexAscii()
     {
